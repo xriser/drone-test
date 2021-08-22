@@ -33,7 +33,5 @@ steps:
       from_secret: github_user_token
 
 trigger:
-  branch:
-    - staging
-  event:
-    - push
+  ref:
+    - refs/heads/staging
