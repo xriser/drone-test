@@ -60,8 +60,7 @@ steps:
 
 trigger:
   ref:
-    - refs/heads/master
+    - refs/heads/main
     - refs/heads/staging
     - "refs/tags/**"
     - "refs/pull/**"
-
