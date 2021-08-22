@@ -8,26 +8,6 @@ platform:
   arch: amd64
 
 steps:
-- name: build and push the base image
-  image: plugins/gcr
-  settings:
-    target: builder
-    tags: base
-    build_args:
-      - BUILDKIT_INLINE_CACHE=1
-    build_args_from_env:
-      - GITHUB_USER_TOKEN
-    dockerfile: Dockerfile
-    json_key:
-      from_secret: json_key_gcp
-    registry: eu.gcr.io
-    repo: daxxer-staging/${DRONE_REPO_NAME}
-    cache_from: eu.gcr.io/daxxer-staging/${DRONE_REPO_NAME}:base
-  environment:
-    DOCKER_BUILDKIT: 1
-    GITHUB_USER_TOKEN:
-      from_secret: github_user_token
-
 - name: send-tags-to-tags-file
   image: alpine:3.14
   commands:
@@ -46,9 +26,6 @@ steps:
       from_secret: json_key_gcp
     registry: eu.gcr.io
     repo: daxxer-staging/${DRONE_REPO_NAME}
-    cache_from:
-      - eu.gcr.io/daxxer-staging/${DRONE_REPO_NAME}:base
-      - eu.gcr.io/daxxer-staging/${DRONE_REPO_NAME}:latest
   environment:
     DOCKER_BUILDKIT: 1
     GITHUB_USER_TOKEN:
