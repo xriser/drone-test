@@ -54,11 +54,14 @@ steps:
     GITHUB_USER_TOKEN:
       from_secret: github_user_token
 
-trigger:
-  event:
-    - push
-    - pull_request
-
 #  branch:
 #    - staging
 #    - main
+
+trigger:
+  ref:
+    - refs/heads/master
+    - refs/heads/staging
+    - "refs/tags/**"
+    - "refs/pull/**"
+
