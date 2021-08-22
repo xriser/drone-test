@@ -4,3 +4,4 @@ RUN apk --update add --no-cache ca-certificates bash git curl gawk sed grep bc c
 
 CMD ["/bin/bash", "-c", "sleep infinity"]
 
+
