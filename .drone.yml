@@ -12,6 +12,7 @@ steps:
   image: alpine:3.14
   commands:
     - echo -n "stage-$(date +'%Y-%m-%d-%H-%M')-${DRONE_COMMIT}" > .tags
+    - cat .tags
 
 - name: build and push the release image
   image: plugins/gcr
@@ -36,8 +37,5 @@ steps:
 #    - main
 
 trigger:
-  ref:
-    - refs/heads/main
-    - refs/heads/staging
-    - "refs/tags/**"
-    - "refs/pull/**"
+  branch:
+    - staging
