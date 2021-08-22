@@ -17,7 +17,6 @@ steps:
 - name: build and push the release image
   image: plugins/gcr
   settings:
-    auto_tag: true
     build_args:
       - BUILDKIT_INLINE_CACHE=1
     build_args_from_env:
