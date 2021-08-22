@@ -55,9 +55,10 @@ steps:
       from_secret: github_user_token
 
 trigger:
-  branch:
-    - staging
-    - main
   event:
     - push
     - pull_request
+
+#  branch:
+#    - staging
+#    - main
