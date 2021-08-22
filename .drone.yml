@@ -32,10 +32,8 @@ steps:
     GITHUB_USER_TOKEN:
       from_secret: github_user_token
 
-#  branch:
-#    - staging
-#    - main
-
 trigger:
   branch:
     - staging
+  event:
+    - push
